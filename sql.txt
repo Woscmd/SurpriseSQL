@@ -1,5 +1,3 @@
-use database_name;
-
 help database;
 help table;
 help view;
@@ -22,5 +20,3 @@ CREATE INDEX student_sno ON student(sno);
 
 grant select,insert on table tbl to hello;
 revoke select on table tbl from hello;
-
-
