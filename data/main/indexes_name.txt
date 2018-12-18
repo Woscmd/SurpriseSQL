@@ -1,0 +1,2 @@
+student_sno
+score_cno

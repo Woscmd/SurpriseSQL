@@ -1,0 +1,4 @@
+key,type,primary key,foreign key,unique,not null,null,check
+sno,int,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE
+cno,int,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+degree,int,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE

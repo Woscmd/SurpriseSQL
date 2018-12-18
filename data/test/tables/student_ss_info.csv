@@ -1,0 +1,4 @@
+key,type,primary key,foreign key,unique,not null,null,check
+sno,int,true,false,false,false,false,false
+sname,varchar(10),false,false,false,true,false,false
+sclass,varchar(10),false,false,false,true,false,false

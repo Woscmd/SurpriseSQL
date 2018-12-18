@@ -1,0 +1,1 @@
+create view score as select sno,cno from score;

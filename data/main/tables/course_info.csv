@@ -1,0 +1,4 @@
+key,type,primary key,foreign key,unique,not null,null,check
+cno,int,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE
+cname,int,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE
+tno,int,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE

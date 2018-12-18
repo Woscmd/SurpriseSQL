@@ -1,0 +1,26 @@
+use database_name;
+
+help database;
+help table;
+help view;
+help index;
+
+CREATE TABLE student_ss (sno INT PRIMARY KEY,sname VARCHAR(10) NOT NULL,sclass VARCHAR(10) NOT NULL);
+SELECT Sname FROM Student WHERE Sno = 108;
+SELECT sno,Sname FROM Student WHERE ssex = ÄÐ and sclass = 95031;
+SELECT Sname FROM Student WHERE Sno IN ( SELECT Sno FROM score WHERE cno = 3-105 );
+select sno from student union select sno from score;
+select sno,sname,degree from student,score where student.sno = score.sno;
+insert into student(sno,sname,ssex,sclass) values(110,ÕÅÈý,ÄÐ,225);
+insert into student_ss(sno,sname,sclass) select sno,sname,sclass from student;
+update student set sclass = 225 where sclass = 95031 or ssex = ÄÐ;
+delete from student where sclass = 225;
+
+create view score as select sno,cno from score;
+
+CREATE INDEX student_sno ON student(sno);
+
+grant select,insert on table tbl to hello;
+revoke select on table tbl from hello;
+
+

@@ -1,0 +1,1 @@
+create index score_cno on course(cno);

@@ -1,0 +1,6 @@
+﻿key,type,primary key,foreign key,unique,not null,null,check
+sno,int,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE
+sname,varchar(100),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE
+ssex,varchar(40),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE
+sbirthday,date,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+sclass,varchar(10),FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
