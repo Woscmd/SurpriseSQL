@@ -1,0 +1,4 @@
+user,database,type,name,having
+root,*,*,*,*
+hello,test,table,tbl,*
+hello,main,table,tbl,"update,insert"
