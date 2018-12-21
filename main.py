@@ -3,6 +3,7 @@
 
 # pycharm2018.2不支持getpass
 import getpass
+import os
 import operator
 import hashlib
 import sql
@@ -29,13 +30,27 @@ def main():
     #password = 'root'
     if login(username, password):
         dv.CURRENT_USER = username
-        print('---------------------------------')
+        os.system('cls')
         if username in dv.DATABASE_ADMIN:
             print("Hello ADMIN %s" % dv.CURRENT_USER)
         else:
             print("Hello USER %s" % dv.CURRENT_USER)
-        print("Welcome to NewSQL .... ")
-        print('---------------------------------')
+        # print('---------------------------------')
+        print(r"""
+                ------------------------------------- 
+               |    S   u   r   p   r   i   s   e    |
+                ------------------------------------- 
+               |                                     |
+               |   ------     -------      |         |
+               |  |          |       |     |         |
+               |  |          |       |     |         |
+               |   ------    |       |     |         |
+               |         |   |       |     |         |
+               |         |    ------\      |         |
+               |   ------            \      -------  |
+               |                                     |                        
+                ------------------------------------- 
+         """)
         while True:
             input_string = sql_input()
             input_string = input_string.lower()
@@ -45,7 +60,7 @@ def main():
                 print('---------------------')
                 return
             elif token[0] == 'use':
-            	dv.CURRENT_DB = token[1]
+                dv.CURRENT_DB = token[1]
             elif token[0] == 'help':
                 sql.helps.parse(token)
             elif token[0] == 'create':
