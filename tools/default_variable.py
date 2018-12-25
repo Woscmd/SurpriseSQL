@@ -3,7 +3,7 @@
 
 #import os
 
-PROJECT_PATH = 'C:\\Users\\yl_20\\MyFiles\\JuniorLastSemester\\DBMS\\NewSQL'
+PROJECT_PATH = 'C:\\SurpriseSQL'      # 工作路径
 DATA_PATH = PROJECT_PATH + r'\data'
 
 global CURRENT_DB, CURRENT_USER, DATABASE_ADMIN
