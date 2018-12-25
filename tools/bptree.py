@@ -112,7 +112,7 @@ def BPlusTree(path, data, degree=2):
 if __name__ == '__main__':
     values = [101, 103, 105, 107, 108]
     kv1 = []
-    path1 = r'C:\Users\yl_20\MyFiles\JuniorLastSemester\DBMS\student_sno_data.txt'
+    path1 = r'C:\student_sno_data.txt'
     for i in range(0, len(values)):
         t = (i, values[i])
         kv1.append(t)

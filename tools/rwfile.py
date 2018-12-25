@@ -65,8 +65,8 @@ def delete_from_csv(csv_path, data):
 
 
 if __name__ == '__main__':
-    c_path = r'C:\Users\yl_20\MyFiles\JuniorLastSemester\DBMS\NewSQL\permission.csv'
-    t_path = r'C:\Users\yl_20\MyFiles\JuniorLastSemester\DBMS\NewSQL\test.txt'
+    c_path = r'C:\SurpriseSQL\permission.csv'
+    t_path = r'C:\SurpriseSQL\test.txt'
     dat1 = [['user', 'database', 'type', 'name', 'have', 'grant'], ['root', '*', '*', '*', '*', '*']]
     dat2 = [['hello', 'test', 'table', 'tbl', '*', '*'],]
     dat3 = [['hi', 'test' 'table', 'tbl', 'select,update', 'select,update']]

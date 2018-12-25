@@ -164,7 +164,7 @@ def select(path, columns, where, group):
 
 
 if __name__ == '__main__':
-    path_e = r'C:\Users\yl_20\MyFiles\JuniorLastSemester\DBMS\NewSQL\data\test\tables\student_data.csv'
+    path_e = r'C:\SurpriseSQL\data\test\tables\student_data.csv'
     col = ['sno', 'sname', 'ssex', 'sbirthday', 'sclass']
     value = ['110', 'zhangsan', '男', 'null', '225']
     values = []
