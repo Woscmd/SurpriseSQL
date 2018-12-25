@@ -4,7 +4,8 @@
 ### 环境配置
 Python3.6.4
 PyCharm2018.2
-依赖的Python库：csv、re、numpy、pandas、getpass(pycharm2018.2不支持此库)
+依赖的第三方Python库：numpy(1.15.3)、pandas(version 0.23.4)
+注：pycharm2018.2不支持getpass库
 
 ### 说明
 1. 管理员具有授权与收回的权限
