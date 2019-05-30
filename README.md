@@ -18,6 +18,20 @@
 
   
 
+## 界面预览
+
+### 登陆界面
+
+![登陆界面](https://github.com/Woscmd/SurpriseSQL/blob/master/image/login.jpg)
+
+  ### 主界面
+
+![welcome](https://github.com/Woscmd/SurpriseSQL/blob/master/image/main.jpg)
+
+![cmd](https://github.com/Woscmd/SurpriseSQL/blob/master/image/3.jpg)
+
+
+
 ## 文件说明
 
 1. data/目录下存储数据库数据，并以csv文件存储。每一张表、视图、索引及其信息都是用一个文件存储（读写过程中小概率出现文件编码问题，建议对csv文件的编码统一编码）。
@@ -44,12 +58,24 @@
 
 7. 支持创建B+树索引。
 
-8. SQL语句可参考sql.txt 。
+8. 用户密码MD5加密。
+
+9. SQL语句可参考sql.txt 。
 
    
 
 ## notice
 
-1. 必须在main.py所在的目录下运行main.py。
+1. 初始提供的用户
+
+   | 用户名 | 密码  | 权限                                         |
+   | ------ | ----- | -------------------------------------------- |
+   | root   | root  | 管理员权限                                   |
+   | hello  | hello | 普通用户权限（具体可参考文件permission.csv） |
+
+   
+
 2. pycharm2018.2暂不支持getpass库（提示用户输入密码而不回显）。
+
+3. 双击main.py文件即可运行。
 
