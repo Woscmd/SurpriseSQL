@@ -12,7 +12,9 @@
 
 - 依赖的Python第三方库：
   numpy == 1.15.3
+  
   pandas  == 0.23.4
+  
   getpass
 
   
