@@ -46,5 +46,7 @@
 
    
 
-   <!--必须在main.py所在的目录下运行main.py-->
+   
+
+   *notice:必须在main.py所在的目录下运行main.py*
 
