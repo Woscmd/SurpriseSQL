@@ -12,9 +12,9 @@
 
 - 依赖的Python第三方库
 
-  numpy == 1.15.3
+  numpy >= 1.15.3
 
-  pandas  == 0.23.4
+  pandas  >= 0.23.4
 
   getpass
 
@@ -32,6 +32,12 @@
 ![welcome](https://github.com/Woscmd/SurpriseSQL/blob/master/image/main.jpg)
 
 ![cmd](https://github.com/Woscmd/SurpriseSQL/blob/master/image/3.jpg)
+
+
+
+## 系统结构
+
+![structure](https://github.com/Woscmd/SurpriseSQL/blob/master/image/structure.jpg)
 
 
 
@@ -59,9 +65,9 @@
 
 6. 执行INSERT、DELETE和UPDATE语句，更新数据表的内容；更新过程中需要检查更新后的数据表是否会违反参照完整性约束。支持单个元组的插入和元组集合的插入（带子查询）
 
-7. 支持创建B+树索引。
-
 8. 用户密码MD5加密。
+
+8. 支持日志记录功能。
 
 9. SQL语句可参考sql.txt 。
 
