@@ -20,7 +20,7 @@ def read_from_csv(csv_path):
             data.append(item)
     return data
 
-#
+# 以追加的方式写入
 def write_to_txt(txt_path, data):
     try:
         with open(txt_path, 'a+') as f:
@@ -28,6 +28,11 @@ def write_to_txt(txt_path, data):
     except Exception as e:
         print(e)
         print('Data write failed !!! ')
+
+# 日志文件文件的写入
+def write_to_log_txt(f, log):
+    log_value = log.get()
+    f.write(log_value + '\n')
 
 
 # data is Two-dimensional list

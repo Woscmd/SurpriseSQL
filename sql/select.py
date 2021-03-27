@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import tools.default_variable as dv
-from tools.base import get_table_data_path
-from tools import file_operation as fop
-from tools.base import check_permission
-from tools.base import dataFrame_to_list
+import base.default_variable as dv
+from base.path import get_table_data_path
+from disk import file_operation as fop
+from tools.integrity import check_permission
+from base.common import dataFrame_to_list
 import pandas as pd
+from base.common import is_table
+from base.common import get_view_definition
 
 # 单表查询
 def singleSelect(tokens):
@@ -24,12 +26,18 @@ def singleSelect(tokens):
         where = tokens[where_index + 1:]
 
     if not check_permission(table, 'select'):
-        print('本用户没有对表%s %s权限' % (table, 'INSERT'))
+        print('本用户没有对表%s %s权限' % (table, 'SELECT'))
         return False
     path = get_table_data_path(dv.CURRENT_DB, table)
     data = fop.select(path, columns, where, group)
     return data
 
+def parseView(view_name):
+    tokens = get_view_definition(view_name)
+    data = singleSelect(tokens)
+    print(data)
+
+# 嵌套查询
 def nestedSelect(tokens):
     try:
         first_index = tokens.index('(')
@@ -48,7 +56,7 @@ def nestedSelect(tokens):
     return where_values
 
 
-def parse(tokens, is_return = False):
+def parse(tokens, is_return=False):
     try:
         from_index = tokens.index('from')
     except:
@@ -57,6 +65,10 @@ def parse(tokens, is_return = False):
     group_index = -1
     columns = tokens[1:from_index]
     table = tokens[from_index + 1]
+    # 判断是否为视图
+    if not is_table(table):
+        parseView(table)
+        return
     where = list()
     group = None
     join_flag = False
@@ -72,7 +84,7 @@ def parse(tokens, is_return = False):
         if where_index - from_index > 2:
             join_flag = True
     if not check_permission(table, 'select'):
-        print('本用户没有对表%s %s权限' % (table, 'INSERT'))
+        print('本用户没有对表%s %s权限' % (table, 'SELECT'))
         return
     path = get_table_data_path(dv.CURRENT_DB, table)
 
@@ -89,7 +101,7 @@ def parse(tokens, is_return = False):
             if not data.empty:
                 print(data)
     # 集合查询
-     # 并集
+    # 并集
     elif 'union' in tokens:
         union_index = tokens.index('union')
         select1 = tokens[:union_index]
@@ -99,7 +111,7 @@ def parse(tokens, is_return = False):
         result_df = pd.concat([data1, data2]).drop_duplicates()
         result_df = result_df.reset_index(drop=True)
         print(result_df)
-     # 交集
+    # 交集
     elif 'intersect' in tokens:
         intersect_index = tokens.index('intersect')
         select1 = tokens[:intersect_index]
@@ -110,7 +122,7 @@ def parse(tokens, is_return = False):
         result_df = pd.merge(data1, data2, on=column)
         result_df = result_df.reset_index(drop=True)
         print(result_df)
-     # 差集
+    # 差集
     elif 'except' in tokens:
         except_index = tokens.index('except')
         select1 = tokens[:except_index]
@@ -153,13 +165,12 @@ def parse(tokens, is_return = False):
                     print(data)
 
 
-
-
 if __name__ == '__main__':
-    #parse(['select', 'sno', 'sname', 'ssex', 'from', 'student'])
-    #parse(['select', 'sno','sname','ssex', 'from', 'student','group','by','ssex'])
-    #parse(['select', 'sno', 'sname', 'from', 'student', 'where', 'sclass', '=', '225', 'or', 'ssex', '=', '男'])
-    #parse(['select', 'sno', 'sname', 'from', 'student', 'where', 'sno', 'in', '(', 'select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105', ')'])
-    #parse(['select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105'])
-    parse(['select', 'sno','from', 'student','intersect','select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105'])
-    #parse(['select', 'sno', 'sname', 'degree','from', 'student','score', 'where', 'student.sno', '=', 'score.sno'])
+    # parse(['select', 'sno', 'sname', 'ssex', 'from', 'student'])
+    # parse(['select', 'sno','sname','ssex', 'from', 'student','group','by','ssex'])
+    # parse(['select', 'sno', 'sname', 'from', 'student', 'where', 'sclass', '=', '225', 'or', 'ssex', '=', '男'])
+    # parse(['select', 'sno', 'sname', 'from', 'student', 'where', 'sno', 'in', '(', 'select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105', ')'])
+    # parse(['select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105'])
+    # parse(['select', 'sno','from', 'student','intersect','select', 'sno', 'from', 'score', 'where', 'cno', '=', '3-105'])
+    # parse(['select', 'sno', 'sname', 'degree','from', 'student','score', 'where', 'student.sno', '=', 'score.sno'])
+    parseView('student')

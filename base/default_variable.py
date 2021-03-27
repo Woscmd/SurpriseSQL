@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#import os
-
-PROJECT_PATH = r'./'      # 工作路径
+PROJECT_PATH = r''  # 工作路径
 DATA_PATH = PROJECT_PATH + r'\data'
 
 global CURRENT_DB, CURRENT_USER, DATABASE_ADMIN

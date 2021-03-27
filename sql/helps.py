@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import tools.base as base
-import tools.rwfile as rwfile
-import tools.default_variable as dv
+import base.path as base
+import disk.rwfile as rwfile
+import base.default_variable as dv
 
 def parse(token):
     path = base.get_database_path(dv.CURRENT_DB)

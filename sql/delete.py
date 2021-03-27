@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import re
-import tools.default_variable as dv
-import tools.file_operation as fop
-from tools.base import check_permission
-from tools.base import get_table_data_path
+import base.default_variable as dv
+import disk.file_operation as fop
+from tools.integrity import check_permission
+from base.path import get_table_data_path
 
 def parse(sql):
     if 'where' not in sql:
@@ -37,7 +37,6 @@ def parse(sql):
             print("SQL 语法错误")
     else:
         print("SQL 语法错误")
-
 
 
 if __name__ == '__main__':

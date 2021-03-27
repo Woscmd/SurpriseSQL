@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import re
-import tools.file_operation as fop
-import tools.default_variable as dv
-from tools.base import check_permission
-from tools.base import get_table_data_path
+import disk.file_operation as fop
+import base.default_variable as dv
+from tools.integrity import check_permission
+from base.path import get_table_data_path
 
 def parse(sql):
     if 'where' not in sql:

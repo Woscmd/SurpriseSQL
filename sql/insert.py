@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import re
-from tools.base import check_permission
-from tools.base import check_constraint
-from tools.base import get_all_columns
-from tools.base import get_table_data_path
-import tools.default_variable as dv
-import tools.file_operation as fop
+from tools.integrity import check_permission
+from tools.integrity import check_constraint
+from base.common import get_all_columns
+from base.common import get_table_data_path
+import base.default_variable as dv
+import disk.file_operation as fop
 import sql.select as select
-from tools.base import string_to_token
-from tools.base import dataFrame_to_list
+from base.common import string_to_token
+from base.common import dataFrame_to_list
 
 def parse(sql):
     if 'values' in sql:
@@ -74,6 +74,7 @@ def parse(sql):
     else:
         print("SQL 语法错误")
         return
+
 
 if __name__ == '__main__':
     sql_example = "insert into student(sno,sname,ssex,sclass) values(101,张三,男,225);"

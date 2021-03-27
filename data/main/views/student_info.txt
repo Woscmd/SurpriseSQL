@@ -1,1 +1,1 @@
-create view student as select sno,sname,ssex from student;
+select sno,sname,ssex from student
