@@ -37,7 +37,7 @@
 
 ## 系统结构
 
-![structure](https://github.com/Woscmd/SurpriseSQL/blob/master/image/structure.png)
+![structure](https://github.com/Woscmd/SurpriseSQL/blob/master/image/structure.jpg)
 
 
 
